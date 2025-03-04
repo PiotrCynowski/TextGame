@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d986bd39f701fe459d7fbd044be6856, type: 3}
+  m_Name: dungeonCorridor
+  m_EditorClassIdentifier: 
+  leaveCondition: {fileID: 11400000, guid: 37074baa40ba4b247b8a3da92dc8e751, type: 2}
+  objects:
+  - {fileID: 11400000, guid: 68592000117e4234794b8e051fbc7ce1, type: 2}
+  - {fileID: 11400000, guid: de3ec56f87478cd40a5c123ebf7cca61, type: 2}
+  - {fileID: 11400000, guid: a8825f65bc061f24ba04059b4f916d63, type: 2}
+  - {fileID: 11400000, guid: 229afa57438d9bd4da1efa0e7b082fd0, type: 2}
+  - {fileID: 11400000, guid: e5229e02701669e428d5e7bd1da6ae44, type: 2}
+  - {fileID: 11400000, guid: 5432e2d1a03a68244915c7cc263ea8cd, type: 2}
+  roomCommand:
+    command: {fileID: 11400000, guid: aea7d1cf64933aa4a86598d67e1fe960, type: 2}
+    commandResponse: You are in a room with a wooden chest that has a lock and a
+      table. A key appears to be stuck under the table, and there is a letter on
+      the floor. There is also another door, with a numeric lock on it.
+  roomName: Corridor
+  welcomeMessage: The player steps through the door and finds themselves in a dimly
+    lit corridor. Freedom is just a few steps away!

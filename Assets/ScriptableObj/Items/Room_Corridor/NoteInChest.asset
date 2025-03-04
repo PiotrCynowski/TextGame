@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b53c2d040bb5fa64dace35ae8f947a53, type: 3}
+  m_Name: NoteInChest
+  m_EditorClassIdentifier: 
+  objectName: note
+  responseSuccess: 'You unfold the note. It reads: "Keycode 4732. Use this to unlock
+    the door to freedom."  '
+  responseFailed: You cannot do that.
+  command: {fileID: 11400000, guid: 533bc2a95a793194f9bc1cc75dfcb7ae, type: 2}
+  conditions:
+  - {fileID: 11400000, guid: 68592000117e4234794b8e051fbc7ce1, type: 2}
+  responseMissingCondition: You cannot do that.
