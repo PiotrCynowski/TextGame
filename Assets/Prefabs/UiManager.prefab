@@ -375,7 +375,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 0
+  m_isRichText: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter text...
+  m_text: Enter command...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 908bf778f9fcb6d44867c0a3ee8af019, type: 2}
   m_sharedMaterial: {fileID: -7898616235263632057, guid: 908bf778f9fcb6d44867c0a3ee8af019, type: 2}

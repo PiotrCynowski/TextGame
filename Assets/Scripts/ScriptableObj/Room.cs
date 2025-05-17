@@ -15,14 +15,14 @@ public class Room : ScriptableObject
         return leaveCondition.ObjectName == collectedCondition;
     }
 
-    public string GetRoomIndividualCommand(string command)
+    public (bool, string) GetRoomIndividualCommand(string command)
     {
         if(roomCommand.command.CommandText == command)
         {
-            return roomCommand.commandResponse;
+            return (true, roomCommand.commandResponse);
         }
 
-        return "I can't do it here.";
+        return (false, "I can't do it here.");
     }
 
     [Serializable]
