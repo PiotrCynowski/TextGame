@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        string colorNameorHex = "#2866b8";
+        string inputMessageColor = $"<color={colorNameorHex}>{inputCommand}</color>";
+        uiManager.DisplayMessage(inputMessageColor);
+
         CommandData commandData = new(inputCommand);
         CommandResult result = roomCommandProcess.ProcessCommand(commandData);
         uiManager.DisplayMessage(result.Message);
