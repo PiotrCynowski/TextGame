@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
         {
             roomCommandProcess = new RoomCommandProcessor(rooms[currentRoomIndex]);
             uiManager.DisplayMessage(rooms[currentRoomIndex].welcomeMessage);
+
+            uiManager.AddCommandsInfo(rooms[currentRoomIndex].GetAvailableCommands());
         }
         else
         {

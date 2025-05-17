@@ -15,7 +15,7 @@ MonoBehaviour:
   objectName: chest
   responseSuccess: The locks click open, and the lid creaks as you lift it. Inside
     the chest, there is a note.
-  responseFailed: You can't do that.
+  responseFailed: You can't do that
   command: {fileID: 11400000, guid: ac079af1585baf144b5cda51b7b05663, type: 2}
   conditions:
   - {fileID: 11400000, guid: de3ec56f87478cd40a5c123ebf7cca61, type: 2}

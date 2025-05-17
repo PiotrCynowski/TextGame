@@ -15,6 +15,6 @@ MonoBehaviour:
   objectName: table
   responseSuccess: With a grunt, you push the table aside. The legs scrape against
     the stone floor, and the key is now easily within your grasp.
-  responseFailed: it stuck under tab
+  responseFailed: You cannot do that
   command: {fileID: 11400000, guid: ea0117e2b146b9b48b6a4e172de89d71, type: 2}
   responseAlreadyDone: table was already moved

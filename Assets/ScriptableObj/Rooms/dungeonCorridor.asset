@@ -27,4 +27,4 @@ MonoBehaviour:
       the floor. There is also another door, with a numeric lock on it.
   roomName: Corridor
   welcomeMessage: The player steps through the door and finds themselves in a dimly
-    lit corridor. Freedom is just a few steps away!
+    lit corridor. Freedom is just a few steps away

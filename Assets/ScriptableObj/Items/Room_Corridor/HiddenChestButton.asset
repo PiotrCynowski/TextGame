@@ -15,6 +15,6 @@ MonoBehaviour:
   objectName: Button
   responseSuccess: "You press the button. There\u2019s a faint clicking sound, and
     a mechanism inside the chest shifts, unlocking one of the two locks."
-  responseFailed: You cannot do that.
+  responseFailed: You cannot do that
   command: {fileID: 11400000, guid: 9d5ff37aaef89b446815b4f20fd36588, type: 2}
   responseAlreadyDone: 'The button has already been pressed.  '

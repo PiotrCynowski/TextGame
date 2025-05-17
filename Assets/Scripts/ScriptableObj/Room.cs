@@ -25,6 +25,17 @@ public class Room : ScriptableObject
         return (false, "I can't do it here.");
     }
 
+    public string[] GetAvailableCommands()
+    {
+        string[] commands = new string[objects.Length];
+        for (int i = 0; i < objects.Length; i++)
+        {
+            commands[i] = objects[i].command.CommandText;
+        }
+
+        return commands;
+    }
+
     [Serializable]
     public class RoomCommand
     {

@@ -16,7 +16,7 @@ MonoBehaviour:
   responseSuccess: "The letter is written in elegant, flowing script. It reads: \u201CThe
     chest is locked with care. To open it, you must find the key hidden nearby and
     press the hidden button on the wall. Only then will the chest reveal its secrets.\u201D"
-  responseFailed: You cannot do that.
+  responseFailed: You cannot do that
   command: {fileID: 11400000, guid: 533bc2a95a793194f9bc1cc75dfcb7ae, type: 2}
   responseAlreadyDone: "The letter is written in elegant, flowing script. It reads:
     \u201CThe chest is locked with care. To open it, you must first find the key

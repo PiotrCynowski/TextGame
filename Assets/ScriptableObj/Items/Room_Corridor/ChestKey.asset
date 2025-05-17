@@ -15,7 +15,7 @@ MonoBehaviour:
   objectName: key
   responseSuccess: You take the key, its metal cool to the touch. It feels solid
     and heavy, ready to unlock whatever it is meant for.
-  responseFailed: You cannot do that.
+  responseFailed: You cannot do that
   command: {fileID: 11400000, guid: bfacf4e6161c70047a4762e436e6655c, type: 2}
   conditions:
   - {fileID: 11400000, guid: 5432e2d1a03a68244915c7cc263ea8cd, type: 2}

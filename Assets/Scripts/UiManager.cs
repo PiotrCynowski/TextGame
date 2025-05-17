@@ -4,11 +4,13 @@ using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
-    public TMP_Text messageText;
-    public TMP_InputField inputField;
+    [SerializeField] TMP_Text messageText;
+    [SerializeField] TMP_Text commandsInfoText;
+    [SerializeField] TMP_InputField inputField;
     private EventSystem eventSystem;
 
     private string accumulatedMessages = "";
+    private string accumulatedCommands = "";
 
     private void Start()
     {
@@ -20,6 +22,15 @@ public class UIManager : MonoBehaviour
     {
         accumulatedMessages += message + "\n\n";
         messageText.text = accumulatedMessages;
+    }
+
+    public void AddCommandsInfo(string[] commands)
+    {
+        foreach (string command in commands)
+        {
+            accumulatedCommands += command + "\n\n";
+            commandsInfoText.text = accumulatedCommands;
+        }
     }
 
     public string GetPlayerInput()
