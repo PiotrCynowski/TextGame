@@ -2,43 +2,46 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Conditional Item", menuName = "EscapeTheDungeon/ConditionalItem")]
-public class CondtitionalItem : CommandableObject
+namespace TextGame
 {
-    public CommandableObject[] conditions;
-    public string responseMissingCondition;
-
-    public override CommandResult ProcessComand(string command, HashSet<string> doneConditions)
+    [CreateAssetMenu(fileName = "New Conditional Item", menuName = "EscapeTheDungeon/ConditionalItem")]
+    public class CondtitionalItem : CommandableObject
     {
-        if (this.command.CommandText == command)
+        public CommandableObject[] conditions;
+        public string responseMissingCondition;
+
+        public override CommandResult ProcessComand(string command, HashSet<string> doneConditions)
         {
-            if (CheckConditions(doneConditions))
+            if (this.command.CommandText == command)
             {
-                return new(true, responseSuccess);
+                if (CheckConditions(doneConditions))
+                {
+                    return new(true, responseSuccess);
+                }
+                else
+                {
+                    return new(false, responseMissingCondition);
+                }
             }
             else
             {
-                return new(false, responseMissingCondition); 
+                return new(false, responseFailed);
             }
         }
-        else
-        {
-            return new(false, responseFailed);
-        }
-    }
 
-    public bool CheckConditions(HashSet<string> inventory)
-    {
-        if (inventory == null || inventory.Count == 0)
+        public bool CheckConditions(HashSet<string> inventory)
         {
-            return false;
-        }
+            if (inventory == null || inventory.Count == 0)
+            {
+                return false;
+            }
 
-        if (conditions == null || conditions.Length == 0)
-        {
-            return true;
-        }
+            if (conditions == null || conditions.Length == 0)
+            {
+                return true;
+            }
 
-        return conditions.All(c => inventory.Contains(c.ObjectName));
+            return conditions.All(c => inventory.Contains(c.ObjectName));
+        }
     }
 }

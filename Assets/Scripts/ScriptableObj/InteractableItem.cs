@@ -1,27 +1,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Interactable Item", menuName = "EscapeTheDungeon/InteractableItem")]
-public class InteractableItem : CommandableObject
+namespace TextGame
 {
-    public string responseAlreadyDone;
-
-    public override CommandResult ProcessComand(string command, HashSet<string> doneConditions)
+    [CreateAssetMenu(fileName = "New Interactable Item", menuName = "EscapeTheDungeon/InteractableItem")]
+    public class InteractableItem : CommandableObject
     {
-        if (this.command.CommandText == command)
+        public string responseAlreadyDone;
+
+        public override CommandResult ProcessComand(string command, HashSet<string> doneConditions)
         {
-            if (!doneConditions.Contains(ObjectName))
+            if (this.command.CommandText == command)
             {
-                return new(true, responseSuccess);
+                if (!doneConditions.Contains(ObjectName))
+                {
+                    return new(true, responseSuccess);
+                }
+                else
+                {
+                    return new(false, responseAlreadyDone);
+                }
             }
             else
             {
-                return new(false, responseAlreadyDone);
+                return new(false, responseFailed);
             }
-        }
-        else
-        {
-            return new(false, responseFailed);
         }
     }
 }

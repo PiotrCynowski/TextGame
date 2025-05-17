@@ -1,12 +1,15 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewCommand", menuName = "EscapeTheDungeon/Command")]
-public class Command : ScriptableObject
+namespace TextGame
 {
-    [SerializeField] private string commandText;
-    public string CommandText
+    [CreateAssetMenu(fileName = "NewCommand", menuName = "EscapeTheDungeon/Command")]
+    public class Command : ScriptableObject
     {
-        get => commandText.ToLower().Trim();
-        private set => commandText = value;
+        [SerializeField] private string commandText;
+        public string CommandText
+        {
+            get => commandText.ToLower().Trim();
+            private set => commandText = value;
+        }
     }
 }

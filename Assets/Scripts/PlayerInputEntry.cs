@@ -1,15 +1,18 @@
 using System;
 using UnityEngine;
 
-public class PlayerInputEntry : MonoBehaviour
+namespace TextGame
 {
-    public event Action OnEnterPressed;
-
-    void Update()
+    public class PlayerInputEntry : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        public event Action OnEnterPressed;
+
+        private void Update()
         {
-            OnEnterPressed?.Invoke();
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                OnEnterPressed?.Invoke();
+            }
         }
     }
 }

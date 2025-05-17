@@ -1,45 +1,50 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Room", menuName = "EscapeTheDungeon/Room")]
-public class Room : ScriptableObject
+namespace TextGame
 {
-    public CondtitionalItem leaveCondition;
-    public CommandableObject[] objects;
-    public RoomCommand roomCommand;
-    public string roomName;
-    public string welcomeMessage;
-
-    public bool IsLeaveRoomConditionsMet(string collectedCondition)
+    [CreateAssetMenu(fileName = "New Room", menuName = "EscapeTheDungeon/Room")]
+    public class Room : ScriptableObject
     {
-        return leaveCondition.ObjectName == collectedCondition;
-    }
+        public CondtitionalItem leaveCondition;
+        public CommandableObject[] objects;
+        public RoomCommand roomCommand;
+        public string roomName;
+        public string welcomeMessage;
 
-    public (bool, string) GetRoomIndividualCommand(string command)
-    {
-        if(roomCommand.command.CommandText == command)
+        public bool IsLeaveRoomConditionsMet(string collectedCondition)
         {
-            return (true, roomCommand.commandResponse);
+            return leaveCondition.ObjectName == collectedCondition;
         }
 
-        return (false, "I can't do it here.");
-    }
-
-    public string[] GetAvailableCommands()
-    {
-        string[] commands = new string[objects.Length];
-        for (int i = 0; i < objects.Length; i++)
+        public (bool, string) GetRoomIndividualCommand(string command)
         {
-            commands[i] = objects[i].command.CommandText;
+            if (roomCommand.command.CommandText == command)
+            {
+                return (true, roomCommand.commandResponse);
+            }
+
+            return (false, "I can't do it here.");
         }
 
-        return commands;
-    }
+        public string[] GetAvailableCommands()
+        {
+            string[] commands = new string[objects.Length + 1];
+            for (int i = 0; i < objects.Length; i++)
+            {
+                commands[i] = objects[i].command.CommandText;
+            }
 
-    [Serializable]
-    public class RoomCommand
-    {
-        public Command command;
-        public string commandResponse;
+            commands[objects.Length] = leaveCondition.command.CommandText;
+
+            return commands;
+        }
+
+        [Serializable]
+        public class RoomCommand
+        {
+            public Command command;
+            public string commandResponse;
+        }
     }
 }

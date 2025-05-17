@@ -1,65 +1,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace TextGame
 {
-    [SerializeField] private List<Room> rooms;
-    private int currentRoomIndex = 0;
-
-    [SerializeField] private PlayerInputEntry playerInput;
-    [SerializeField] private UIManager uiManager;
-
-    private RoomCommandProcessor roomCommandProcess;
-
-    private void Start()
+    public class GameManager : MonoBehaviour
     {
-        playerInput.OnEnterPressed += PlayerExecuteCommand;
-        PrepareNewRoom(currentRoomIndex);
-    }
+        [SerializeField] private List<Room> rooms;
+        private int currentRoomIndex = 0;
 
-    public void PlayerExecuteCommand()
-    {
-        string inputCommand = uiManager.GetPlayerInput();
+        [SerializeField] private PlayerInputEntry playerInput;
+        [SerializeField] private UIManager uiManager;
 
-        if (string.IsNullOrWhiteSpace(inputCommand) || roomCommandProcess == null)
+        private RoomCommandProcessor roomCommandProcess;
+
+        private void Start()
         {
-            uiManager.DisplayMessage("Invalid command.");
-            return;
-        }
-
-        string colorNameorHex = "#2866b8";
-        string inputMessageColor = $"<color={colorNameorHex}>{inputCommand}</color>";
-        uiManager.DisplayMessage(inputMessageColor);
-
-        CommandData commandData = new(inputCommand);
-        CommandResult result = roomCommandProcess.ProcessCommand(commandData);
-        uiManager.DisplayMessage(result.Message);
-
-        if (result.Success)
-        {
-            currentRoomIndex++;
+            playerInput.OnEnterPressed += PlayerExecuteCommand;
             PrepareNewRoom(currentRoomIndex);
         }
-    }
 
-    private void PrepareNewRoom(int roomIndex)
-    {
-        if (roomIndex < rooms.Count)
+        public void PlayerExecuteCommand()
         {
-            roomCommandProcess = new RoomCommandProcessor(rooms[currentRoomIndex]);
-            uiManager.DisplayMessage(rooms[currentRoomIndex].welcomeMessage);
+            string inputCommand = uiManager.GetPlayerInput();
 
-            uiManager.AddCommandsInfo(rooms[currentRoomIndex].GetAvailableCommands());
+            if (string.IsNullOrWhiteSpace(inputCommand) || roomCommandProcess == null)
+            {
+                uiManager.DisplayMessage("Invalid command.");
+                return;
+            }
+
+            string colorNameorHex = "#2866b8";
+            string inputMessageColor = $"<color={colorNameorHex}>{inputCommand}</color>";
+            uiManager.DisplayMessage(inputMessageColor);
+
+            CommandData commandData = new(inputCommand);
+            CommandResult result = roomCommandProcess.ProcessCommand(commandData);
+            uiManager.DisplayMessage(result.Message);
+
+            if (result.Success)
+            {
+                currentRoomIndex++;
+                PrepareNewRoom(currentRoomIndex);
+            }
         }
-        else
+
+        private void PrepareNewRoom(int roomIndex)
         {
-            roomCommandProcess = null;
-            uiManager.DisplayMessage(GetEndGameMessage());
-        }
-    }
+            if (roomIndex < rooms.Count)
+            {
+                roomCommandProcess = new RoomCommandProcessor(rooms[currentRoomIndex]);
+                uiManager.DisplayMessage(rooms[currentRoomIndex].welcomeMessage);
 
-    private string GetEndGameMessage()
-    {
-        return "Beyond the door lies a bright, open world.You step out into freedom, leaving the dungeon behind";
+                uiManager.AddCommandsInfo(rooms[currentRoomIndex].GetAvailableCommands());
+            }
+            else
+            {
+                roomCommandProcess = null;
+                uiManager.DisplayMessage(GetEndGameMessage());
+            }
+        }
+
+        private string GetEndGameMessage()
+        {
+            return "Beyond the door lies a bright, open world.You step out into freedom, leaving the dungeon behind";
+        }
     }
 }
