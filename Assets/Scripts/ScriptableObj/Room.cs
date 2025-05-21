@@ -29,13 +29,14 @@ namespace TextGame
 
         public string[] GetAvailableCommands()
         {
-            string[] commands = new string[objects.Length + 1];
+            string[] commands = new string[objects.Length + 2];
             for (int i = 0; i < objects.Length; i++)
             {
                 commands[i] = objects[i].command.CommandText;
             }
 
             commands[objects.Length] = leaveCondition.command.CommandText;
+            commands[objects.Length+1] = roomCommand.command.CommandText;
 
             return commands;
         }
